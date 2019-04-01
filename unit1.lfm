@@ -9,6 +9,7 @@ object Form1: TForm1
   ClientWidth = 330
   DesignTimePPI = 120
   OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   LCLVersion = '1.8.2.0'
   object l_FirstName: TLabel

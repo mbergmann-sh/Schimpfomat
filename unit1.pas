@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls;
+  Dialogs, StdCtrls, Translations;
 
 type
 
@@ -20,7 +20,9 @@ type
     procedure b_ExitClick(Sender: TObject);
     procedure b_HelloClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
+
   private
 
   public
@@ -39,14 +41,7 @@ implementation
 
 procedure TForm1.b_ExitClick(Sender: TObject);
 begin
-  if(MessageDlg('Wirklich beenden?', mtConfirmation, [mbYes, mbNo], 0)) = mrYes then
-  begin
-    Close;
-  end
-  else
-  begin
-    ed_FirstName.setFocus;
-  end
+  Close;
 end;
 
 procedure TForm1.b_HelloClick(Sender: TObject);
@@ -96,13 +91,42 @@ end;
 procedure TForm1.FormActivate(Sender: TObject);
 begin
   Form1.HandleNeeded;
-  //Form1.GetPreferredSize(PreferredWidth, PreferredHeight);
+end;
+
+
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+  case MessageDlg('Wirklich beenden?', mtConfirmation, [mbYes, mbNo, mbCancel], 0) of
+
+  mrYes:
+    begin
+      //ShowMessage('yes');
+      CanClose := true;
+    end;
+
+  mrNo:
+    begin;
+     // ShowMessage('no');
+      CanClose := false;
+      ed_FirstName.setfocus();
+    end;
+
+  else
+    begin;
+      //ShowMessage('Cancel');
+      CanClose := false;
+      ed_FirstName.setfocus();
+    end;
+
+  end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Randomize();
 end;
+
+
 
 end.
 

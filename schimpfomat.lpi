@@ -16,6 +16,10 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
+    <i18n>
+      <EnableI18N Value="True"/>
+      <OutDir Value="po"/>
+    </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
@@ -24,7 +28,7 @@
       <BuildNr Value="1"/>
       <Language Value="0407"/>
       <Attributes pvaPreRelease="True"/>
-      <StringTable CompanyName="MB-SoftWorX" ProductVersion=""/>
+      <StringTable CompanyName="MB-SoftWorX"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -51,6 +55,7 @@
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Unit1"/>
       </Unit1>
