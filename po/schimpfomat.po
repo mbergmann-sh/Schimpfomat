@@ -1,0 +1,23 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tform1.b_exit.caption
+msgid "Tschüss!"
+msgstr ""
+
+#: tform1.b_hello.caption
+msgid "Sag \"Guten Tag!\""
+msgstr ""
+
+#: tform1.caption
+msgid "Schimpfomat"
+msgstr ""
+
+#: tform1.ed_firstname.text
+msgid "Wie heißt Du, Pursche?!"
+msgstr ""
+
+#: tform1.l_firstname.caption
+msgid "Verrate mir Deinen Namen!"
+msgstr ""
+
