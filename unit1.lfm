@@ -1,60 +1,118 @@
 object Form1: TForm1
-  Left = 737
-  Height = 99
-  Top = 421
-  Width = 264
+  Left = 2255
+  Height = 271
+  Top = 167
+  Width = 380
   Align = alCustom
   Caption = 'Schimpfomat'
-  ClientHeight = 99
-  ClientWidth = 264
+  ClientHeight = 271
+  ClientWidth = 380
+  DesignTimePPI = 92
   OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
-  LCLVersion = '2.0.0.4'
-  object l_FirstName: TLabel
-    Left = 6
-    Height = 16
-    Top = 6
-    Width = 144
-    AutoSize = False
+  LCLVersion = '1.8.2.0'
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 83
+    Top = 26
+    Width = 360
+    Anchors = [akLeft, akRight]
+    BorderSpacing.Left = 2
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 2
     Caption = 'Verrate mir Deinen Namen!'
-    ParentColor = False
-    ParentFont = False
-    OptimalFill = True
-  end
-  object ed_FirstName: TEdit
-    Left = 6
-    Height = 23
-    Top = 32
-    Width = 253
-    Anchors = [akTop, akLeft, akRight]
+    ClientHeight = 53
+    ClientWidth = 356
     ParentFont = False
     TabOrder = 0
-    Text = 'Wie heißt Du, Pursche?!'
+    object ed_FirstName: TEdit
+      Left = 4
+      Height = 45
+      Top = 4
+      Width = 348
+      Align = alClient
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Nun mach hinne, Mensch!'
+    end
   end
-  object b_Exit: TButton
-    Left = 156
-    Height = 24
-    Top = 64
-    Width = 95
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    AutoSize = True
-    Caption = 'Tschüss!'
-    OnClick = b_ExitClick
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 101
+    Top = 125
+    Width = 361
+    Anchors = [akLeft, akRight]
+    BorderSpacing.Left = 2
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 2
+    Caption = 'Ausgabe für soziale Medien'
+    ClientHeight = 71
+    ClientWidth = 357
     ParentFont = False
     TabOrder = 1
+    object ed_Ausgabe: TEdit
+      Left = 4
+      Height = 32
+      Top = 4
+      Width = 349
+      Align = alTop
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
+      ParentFont = False
+      TabOrder = 0
+    end
+    object b_Clopboard: TButton
+      Left = 4
+      Height = 28
+      Top = 39
+      Width = 349
+      Align = alBottom
+      Anchors = [akRight]
+      AutoSize = True
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
+      Caption = 'Kopiere Beschimpfung in die Zwischenablage!'
+      OnClick = b_ClopboardClick
+      ParentFont = False
+      TabOrder = 1
+    end
   end
   object b_Hello: TButton
-    Left = 11
+    Left = 168
     Height = 24
-    Top = 64
-    Width = 116
-    Anchors = [akTop, akLeft, akBottom]
-    AutoSize = True
-    Caption = 'Sag "Guten Tag!"'
+    Top = 240
+    Width = 120
+    Anchors = [akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    BorderSpacing.Bottom = 4
+    Caption = 'Beschimpfen!'
     Default = True
     OnClick = b_HelloClick
     ParentFont = False
     TabOrder = 2
+  end
+  object b_Exit: TButton
+    Left = 297
+    Height = 24
+    Top = 240
+    Width = 72
+    Anchors = [akBottom]
+    Caption = 'Tschüss...'
+    OnClick = b_ExitClick
+    ParentFont = False
+    TabOrder = 3
   end
 end

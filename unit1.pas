@@ -6,17 +6,21 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Translations;
+  Dialogs, StdCtrls, Menus, Translations;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    b_Clopboard: TButton;
     b_Exit: TButton;
     b_Hello: TButton;
+    ed_Ausgabe: TEdit;
     ed_FirstName: TEdit;
-    l_FirstName: TLabel;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    procedure b_ClopboardClick(Sender: TObject);
     procedure b_ExitClick(Sender: TObject);
     procedure b_HelloClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -41,7 +45,13 @@ implementation
 
 procedure TForm1.b_ExitClick(Sender: TObject);
 begin
+  //application.Terminate;
   Close;
+end;
+
+procedure TForm1.b_ClopboardClick(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.b_HelloClick(Sender: TObject);
@@ -86,6 +96,7 @@ begin
 
   Greeting := Greeting + Format(' %s! ', [FirstName]);
   Greeting := Greeting + Beschimpfung;
+  ed_Ausgabe.Text := Greeting;
   MessageDlg('Wen haben wir denn da?', Greeting, mtConfirmation, [mbOK], 0);
 end;
 
@@ -127,8 +138,15 @@ var
   PODirectory: String; // Localisierungen finden!
 begin
   (* Übersetzen von MessageDlg Buttons... *)
+  {$IFDEF WINDOWS}
   PODirectory:='C:/lazarus/lcl/languages/'; // Schrägstrich nicht vergessen!
+  {$ELSE}
+  {$IFDEF Linux}
+  PODirectory:='/usr/lib/lazarus/1.8.2/lcl/languages/';
+  {$ENDIF}
+  {$ENDIF}
   TranslateUnitResourceStrings('LCLStrConsts',PODirectory+'lclstrconsts.%s.po','de','');
+
   (* Zufallszahlengenerator initialisieren *)
   Randomize();
 end;
