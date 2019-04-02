@@ -1,23 +1,32 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tform1.b_clipboard.caption
+msgid "Kopiere Beschimpfung in die Zwischenablage!"
+msgstr ""
+
 #: tform1.b_exit.caption
-msgid "Tschüss!"
+msgid "Tschüss..."
 msgstr ""
 
 #: tform1.b_hello.caption
-msgid "Sag \"Guten Tag!\""
+msgid "Beschimpfen!"
 msgstr ""
 
 #: tform1.caption
-msgid "Schimpfomat"
+msgid "Schimpfomat v2.0"
 msgstr ""
 
 #: tform1.ed_firstname.text
-msgid "Wie heißt Du, Pursche?!"
+msgid "Nun mach hinne, Mensch!"
 msgstr ""
 
-#: tform1.l_firstname.caption
+#: tform1.groupbox1.caption
+msgctxt "tform1.groupbox1.caption"
 msgid "Verrate mir Deinen Namen!"
+msgstr ""
+
+#: tform1.groupbox2.caption
+msgid "Ausgabe für soziale Medien"
 msgstr ""
 

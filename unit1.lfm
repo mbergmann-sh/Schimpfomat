@@ -1,37 +1,38 @@
 object Form1: TForm1
-  Left = 2255
-  Height = 271
-  Top = 167
-  Width = 380
+  Left = 641
+  Height = 283
+  Top = 50
+  Width = 397
   Align = alCustom
-  Caption = 'Schimpfomat'
-  ClientHeight = 271
-  ClientWidth = 380
-  DesignTimePPI = 92
+  Caption = 'Schimpfomat v2.0'
+  ClientHeight = 283
+  ClientWidth = 397
   OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
-  LCLVersion = '1.8.2.0'
+  Position = poDesktopCenter
+  LCLVersion = '2.0.0.4'
+  Visible = True
   object GroupBox1: TGroupBox
     Left = 8
-    Height = 83
-    Top = 26
-    Width = 360
+    Height = 87
+    Top = 29
+    Width = 376
     Anchors = [akLeft, akRight]
     BorderSpacing.Left = 2
     BorderSpacing.Top = 2
     BorderSpacing.Right = 2
     BorderSpacing.Bottom = 2
     Caption = 'Verrate mir Deinen Namen!'
-    ClientHeight = 53
-    ClientWidth = 356
+    ClientHeight = 67
+    ClientWidth = 372
     ParentFont = False
     TabOrder = 0
     object ed_FirstName: TEdit
       Left = 4
-      Height = 45
+      Height = 59
       Top = 4
-      Width = 348
+      Width = 364
       Align = alClient
       BorderSpacing.Left = 4
       BorderSpacing.Top = 4
@@ -44,24 +45,24 @@ object Form1: TForm1
   end
   object GroupBox2: TGroupBox
     Left = 8
-    Height = 101
-    Top = 125
-    Width = 361
+    Height = 105
+    Top = 133
+    Width = 378
     Anchors = [akLeft, akRight]
     BorderSpacing.Left = 2
     BorderSpacing.Top = 2
     BorderSpacing.Right = 2
     BorderSpacing.Bottom = 2
     Caption = 'Ausgabe für soziale Medien'
-    ClientHeight = 71
-    ClientWidth = 357
+    ClientHeight = 85
+    ClientWidth = 374
     ParentFont = False
     TabOrder = 1
     object ed_Ausgabe: TEdit
       Left = 4
-      Height = 32
+      Height = 23
       Top = 4
-      Width = 349
+      Width = 366
       Align = alTop
       BorderSpacing.Left = 4
       BorderSpacing.Top = 4
@@ -72,9 +73,9 @@ object Form1: TForm1
     end
     object b_Clipboard: TButton
       Left = 4
-      Height = 28
-      Top = 39
-      Width = 349
+      Height = 25
+      Top = 56
+      Width = 366
       Align = alBottom
       Anchors = [akRight]
       AutoSize = True
@@ -89,10 +90,10 @@ object Form1: TForm1
     end
   end
   object b_Hello: TButton
-    Left = 168
-    Height = 24
-    Top = 240
-    Width = 120
+    Left = 178
+    Height = 25
+    Top = 251
+    Width = 125
     Anchors = [akBottom]
     BorderSpacing.Left = 4
     BorderSpacing.Top = 4
@@ -105,10 +106,10 @@ object Form1: TForm1
     TabOrder = 2
   end
   object b_Exit: TButton
-    Left = 297
-    Height = 24
-    Top = 240
-    Width = 72
+    Left = 312
+    Height = 25
+    Top = 251
+    Width = 75
     Anchors = [akBottom]
     Caption = 'Tschüss...'
     OnClick = b_ExitClick
