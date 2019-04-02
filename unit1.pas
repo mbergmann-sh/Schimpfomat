@@ -6,21 +6,21 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Menus, Translations;
+  Dialogs, StdCtrls, Menus, Clipbrd, Translations;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    b_Clopboard: TButton;
+    b_Clipboard: TButton;
     b_Exit: TButton;
     b_Hello: TButton;
     ed_Ausgabe: TEdit;
     ed_FirstName: TEdit;
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
-    procedure b_ClopboardClick(Sender: TObject);
+    procedure b_ClipboardClick(Sender: TObject);
     procedure b_ExitClick(Sender: TObject);
     procedure b_HelloClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -36,6 +36,8 @@ type
 var
   Form1: TForm1;
   zufallszahl: Integer;
+  anrede_schon_da: Integer;
+  beschimpfung_schon_da: Integer;
 
 implementation
 
@@ -49,9 +51,10 @@ begin
   Close;
 end;
 
-procedure TForm1.b_ClopboardClick(Sender: TObject);
+procedure TForm1.b_ClipboardClick(Sender: TObject);
 begin
-
+  //ed_Ausgabe.CopyToClipboard;
+  Clipboard.AsText := ed_Ausgabe.Text;
 end;
 
 procedure TForm1.b_HelloClick(Sender: TObject);
@@ -86,16 +89,25 @@ var
 
 begin
   FirstName := ed_FirstName.Text;
-  zufallszahl := random(5)+0;
+
+  repeat
+        zufallszahl := random(5)+0;
+  until zufallszahl <> anrede_schon_da ;  // Wiederholungen für Anrede unterbinden!
+
   Anrede := anredeArray[zufallszahl];
   Greeting :=  Anrede;
+  anrede_schon_da := zufallszahl;
 
   Randomize();
-  zufallszahl := random(13)+0;
-  Beschimpfung :=  schimpfArray[zufallszahl];
+  repeat
+        zufallszahl := random(13)+0;
+  until zufallszahl <> beschimpfung_schon_da ;  // Wiederholungen für Beschimpfung unterbinden!
 
+  Beschimpfung :=  schimpfArray[zufallszahl];
   Greeting := Greeting + Format(' %s! ', [FirstName]);
   Greeting := Greeting + Beschimpfung;
+  beschimpfung_schon_da := zufallszahl;
+
   ed_Ausgabe.Text := Greeting;
   MessageDlg('Wen haben wir denn da?', Greeting, mtConfirmation, [mbOK], 0);
 end;

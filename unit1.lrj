@@ -3,7 +3,7 @@
 {"hash":105116849,"name":"tform1.groupbox1.caption","sourcebytes":[86,101,114,114,97,116,101,32,109,105,114,32,68,101,105,110,101,110,32,78,97,109,101,110,33],"value":"Verrate mir Deinen Namen!"},
 {"hash":249397569,"name":"tform1.ed_firstname.text","sourcebytes":[78,117,110,32,109,97,99,104,32,104,105,110,110,101,44,32,77,101,110,115,99,104,33],"value":"Nun mach hinne, Mensch!"},
 {"hash":192390654,"name":"tform1.groupbox2.caption","sourcebytes":[65,117,115,103,97,98,101,32,102,195,188,114,32,115,111,122,105,97,108,101,32,77,101,100,105,101,110],"value":"Ausgabe f\u00FCr soziale Medien"},
-{"hash":44067313,"name":"tform1.b_clopboard.caption","sourcebytes":[75,111,112,105,101,114,101,32,66,101,115,99,104,105,109,112,102,117,110,103,32,105,110,32,100,105,101,32,90,119,105,115,99,104,101,110,97,98,108,97,103,101,33],"value":"Kopiere Beschimpfung in die Zwischenablage!"},
+{"hash":44067313,"name":"tform1.b_clipboard.caption","sourcebytes":[75,111,112,105,101,114,101,32,66,101,115,99,104,105,109,112,102,117,110,103,32,105,110,32,100,105,101,32,90,119,105,115,99,104,101,110,97,98,108,97,103,101,33],"value":"Kopiere Beschimpfung in die Zwischenablage!"},
 {"hash":214586337,"name":"tform1.b_hello.caption","sourcebytes":[66,101,115,99,104,105,109,112,102,101,110,33],"value":"Beschimpfen!"},
 {"hash":258071374,"name":"tform1.b_exit.caption","sourcebytes":[84,115,99,104,195,188,115,115,46,46,46],"value":"Tsch\u00FCss..."}
 ]}
