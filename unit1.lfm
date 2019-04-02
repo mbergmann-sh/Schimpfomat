@@ -1,57 +1,60 @@
 object Form1: TForm1
-  Left = -1253
-  Height = 124
-  Top = 423
-  Width = 330
+  Left = 737
+  Height = 99
+  Top = 421
+  Width = 264
   Align = alCustom
   Caption = 'Schimpfomat'
-  ClientHeight = 124
-  ClientWidth = 330
-  DesignTimePPI = 120
+  ClientHeight = 99
+  ClientWidth = 264
   OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
-  LCLVersion = '1.8.2.0'
+  LCLVersion = '2.0.0.4'
   object l_FirstName: TLabel
-    Left = 8
-    Height = 20
-    Top = 8
-    Width = 180
+    Left = 6
+    Height = 16
+    Top = 6
+    Width = 144
     AutoSize = False
     Caption = 'Verrate mir Deinen Namen!'
     ParentColor = False
+    ParentFont = False
     OptimalFill = True
   end
   object ed_FirstName: TEdit
-    Left = 8
-    Height = 28
-    Top = 40
-    Width = 316
+    Left = 6
+    Height = 23
+    Top = 32
+    Width = 253
     Anchors = [akTop, akLeft, akRight]
+    ParentFont = False
     TabOrder = 0
     Text = 'Wie heißt Du, Pursche?!'
   end
   object b_Exit: TButton
-    Left = 195
-    Height = 30
-    Top = 80
-    Width = 119
+    Left = 156
+    Height = 24
+    Top = 64
+    Width = 95
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     Caption = 'Tschüss!'
     OnClick = b_ExitClick
+    ParentFont = False
     TabOrder = 1
   end
   object b_Hello: TButton
-    Left = 14
-    Height = 30
-    Top = 80
-    Width = 139
+    Left = 11
+    Height = 24
+    Top = 64
+    Width = 116
     Anchors = [akTop, akLeft, akBottom]
     AutoSize = True
     Caption = 'Sag "Guten Tag!"'
     Default = True
     OnClick = b_HelloClick
+    ParentFont = False
     TabOrder = 2
   end
 end

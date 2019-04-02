@@ -53,19 +53,20 @@ const
   'Was ist los,',
   'Musst Du hier sein,');
 
-  schimpfArray: Array[0..11] of String = (
+  schimpfArray: Array[0..12] of String = (
   'Du bist eine Pfeife ohne Stiel.',
   'Du bist ein Vollhonk.',
   'Du bist einfach zu gut für diese Welt. Geh woanders hin!',
   'Du bist eine Pussi ohne Haare.',
-  'Dem Hörensagen nach bist Du ziemlich dämlich. Ist''s wahr?',
-  'Du bist doch betrunken? Lass die Pillen stehen!',
+  'Dem Hörensagen nach bist Du ja eher intelligenzabstinent. Ist''s wahr?',
+  'Du bist doch betrunken? Lass lieber mal die Pillen stehen!',
   'Du bist bestimmt auf Brautschau!',
   'Da sind doch Drogen im Spiel?',
   'Deine Mudda...',
   'Bist Du dumm oder sowas?',
   'Kann es angehen, dass Du ein begeisterter Sitzmöbelflatulenzler bist?',
-  'Ein Chabo weiß, wann er gehen muss...');
+  'Ein Chabo weiß genau, wann er gehen muss...',
+  'Für mich bist Du ja eher wie der tragische Held in Sophokles'' bekanntestem Theaterstück...');
 
 var
   FirstName: string;
@@ -77,15 +78,15 @@ begin
   FirstName := ed_FirstName.Text;
   zufallszahl := random(5)+0;
   Anrede := anredeArray[zufallszahl];
-  Greeting := Greeting + Anrede;
+  Greeting :=  Anrede;
 
   Randomize();
-  zufallszahl := random(12)+0;
+  zufallszahl := random(13)+0;
   Beschimpfung :=  schimpfArray[zufallszahl];
 
   Greeting := Greeting + Format(' %s! ', [FirstName]);
   Greeting := Greeting + Beschimpfung;
-  MessageDlg(Greeting, mtWarning, [mbOK], 0);
+  MessageDlg('Wen haben wir denn da?', Greeting, mtConfirmation, [mbOK], 0);
 end;
 
 procedure TForm1.FormActivate(Sender: TObject);
@@ -96,7 +97,7 @@ end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  case MessageDlg('Wirklich beenden?', mtConfirmation, [mbYes, mbNo, mbCancel], 0) of
+  case MessageDlg('Lasst mich hier raus!', 'Wirklich beenden?', mtConfirmation, [mbYes, mbNo, mbCancel], 0) of
 
   mrYes:
     begin
@@ -122,7 +123,13 @@ begin
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  PODirectory: String; // Localisierungen finden!
 begin
+  (* Übersetzen von MessageDlg Buttons... *)
+  PODirectory:='C:/lazarus/lcl/languages/'; // Schrägstrich nicht vergessen!
+  TranslateUnitResourceStrings('LCLStrConsts',PODirectory+'lclstrconsts.%s.po','de','');
+  (* Zufallszahlengenerator initialisieren *)
   Randomize();
 end;
 
