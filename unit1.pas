@@ -59,15 +59,25 @@ end;
 
 procedure TForm1.b_HelloClick(Sender: TObject);
 const
-  anredeArray: Array[0..5] of String = (
+  anredeIndex: Integer = 1 + 12;       (* Bei Erweiterungen: Index anpassen! *)
+  schimpfIndex: Integer = 1 + 47;     (* Bei Erweiterungen: Index anpassen! *)
+
+  anredeArray: Array[0..12] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
   'Ach nee, ',
   'Tach auch,',
   'Leck mich,',
   'Was ist los,',
   'Musst Du hier sein',
-  'Mit deiner Intelligenz hätte ich das jetzt auch so gesagt,');
+  'Mit deiner Intelligenz hätte ich das jetzt auch so gesagt,',
+  'Brav so,',
+  'Wir wissen es alle,',
+  'Deine Eltern hatten dich nicht lieb,',
+  'Schon klar,',
+  'Es ist erstaunlich,',
+  'Was bist Du denn für ein Troll,',
+  '');
 
-  schimpfArray: Array[0..44] of String = (
+  schimpfArray: Array[0..47] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
   'Du bist eine Pfeife ohne Stiel.',
   'Du bist ein Vollhonk.',
   'Du bist einfach zu gut für diese Welt. Geh woanders hin!',
@@ -81,7 +91,7 @@ const
   'Kann es angehen, dass Du ein begeisterter Sitzmöbelflatulenzler bist?',
   'Ein Chabo weiß genau, wann er gehen muss...',
   'Für mich bist Du ja eher wie der tragische Held in Sophokles'' bekanntestem Theaterstück...',
-  'Hat einer die 0 gewählt, daß Du dich meldest ?',
+  'Hat einer die Null gewählt, daß Du dich meldest ?',
   'Als Kind hat dir doch Deine Mutter ein Kotelett umgehängt, damit wenigstens der Hund mit Dir spielt!',
   'Schau mal im Lexikon unter Arsch nach. Da ist dein Gesicht abgebildet.',
   'Sag mal, waren Deine Eltern Geschwister?',
@@ -112,7 +122,10 @@ const
   'Deine Sprüche sind so alt, da sind ja noch Hakenkreuze dran!',
   'Bin ich froh, daß ich nicht Du bin! In einer Familie, in der ich zu meinem Bruder Papi sagen muß, würde ich mich nicht wohlfühlen!',
   'Wer Spaß am 2. Weltkrieg hatte, wird dich vielleicht auch mögen.',
-  'Du hast Helium im Kopf, damit Du aufrecht gehen kannst, was?');
+  'Du hast Helium im Kopf, damit Du aufrecht gehen kannst, was?',
+  'Das behauptest du doch nur, um vom Vakuum in deinem Schädel abzulenken.',
+  'Wenn Gülle die Argumentation ersetzen muss...',
+  'und seine kleine Welt... :D');
 
 var
   FirstName: string;
@@ -124,7 +137,7 @@ begin
   FirstName := ed_FirstName.Text;
 
   repeat
-        zufallszahl := random(6)+0;
+        zufallszahl := random(anredeIndex)+0;
   until zufallszahl <> anrede_schon_da ;  // Wiederholungen für Anrede unterbinden!
 
   Anrede := anredeArray[zufallszahl];
@@ -133,7 +146,7 @@ begin
 
   Randomize();
   repeat
-        zufallszahl := random(44)+0;
+        zufallszahl := random(schimpfIndex)+0;
   until zufallszahl <> beschimpfung_schon_da ;  // Wiederholungen für Beschimpfung unterbinden!
 
   Beschimpfung :=  schimpfArray[zufallszahl];
@@ -180,16 +193,23 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 var
+  currDir: AnsiString;
   PODirectory: String; // Localisierungen finden!
 begin
+  currDir := GetCurrentDir;
+
   (* Übersetzen von MessageDlg Buttons... *)
   {$IFDEF WINDOWS}
-  PODirectory:='C:/lazarus/lcl/languages/'; // Schrägstrich nicht vergessen!
+  // PODirectory:='C:/lazarus/lcl/languages/'; // Schrägstrich nicht vergessen!
+  currDir := currDir + '\po\';
+  PODirectory := currDir;
+  ed_Ausgabe.Text := currDir;
   {$ELSE}
   {$IFDEF Linux}
   PODirectory:='/usr/lib/lazarus/1.8.2/lcl/languages/';
   {$ENDIF}
   {$ENDIF}
+
   TranslateUnitResourceStrings('LCLStrConsts',PODirectory+'lclstrconsts.%s.po','de','');
 
   (* Zufallszahlengenerator initialisieren *)
