@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
+  Windows, Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
   Dialogs, StdCtrls, Menus, Clipbrd, Translations;
 
 type
@@ -16,6 +16,7 @@ type
     b_Clipboard: TButton;
     b_Exit: TButton;
     b_Hello: TButton;
+    cb_Screenshot: TCheckBox;
     ed_Ausgabe: TEdit;
     ed_FirstName: TEdit;
     GroupBox1: TGroupBox;
@@ -59,10 +60,10 @@ end;
 
 procedure TForm1.b_HelloClick(Sender: TObject);
 const
-  anredeIndex: Integer = 1 + 12;       (* Bei Erweiterungen: Index anpassen! *)
-  schimpfIndex: Integer = 1 + 47;     (* Bei Erweiterungen: Index anpassen! *)
+  anredeIndex: Integer = 1 + 15;       (* Bei Erweiterungen: Index anpassen! *)
+  schimpfIndex: Integer = 1 + 50;      (* Bei Erweiterungen: Index anpassen! *)
 
-  anredeArray: Array[0..12] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
+  anredeArray: Array[0..15] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
   'Ach nee, ',
   'Tach auch,',
   'Leck mich,',
@@ -75,10 +76,13 @@ const
   'Schon klar,',
   'Es ist erstaunlich,',
   'Was bist Du denn für ein Troll,',
+  'Du hast doch Gase eingeatmet,',
+  'Sehr guter Einfall,',
+  'Ach, das ist doch das übliche Gewäsch des armen, unverstandenen Rechtsaußen, der sich und seine verqueren Ansichten für die Mitte der Gesellschaft hält,',
   '');
 
-  schimpfArray: Array[0..47] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
-  'Du bist eine Pfeife ohne Stiel.',
+  schimpfArray: Array[0..50] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
+  'Du bist wie eine Pfeife ohne Stiel.',
   'Du bist ein Vollhonk.',
   'Du bist einfach zu gut für diese Welt. Geh woanders hin!',
   'Du bist eine Pussi ohne Haare.',
@@ -110,13 +114,13 @@ const
   'Rede ruhig weiter bis Dir etwas einfällt...',
   'Wenn ich Du wäre, wäre ich gerne ich!',
   'Wenn Curt Cobain Dich gekannt hätte, hätte er sich glatt nochmal erschossen!',
-  'Du bist wie eine Wolke: wenn Du dich verziehst, kanns doch noch ein schöner Tag werden!',
+  'Du bist wie eine Wolke: Wenn Du dich verziehst, kann es doch noch ein schöner Tag werden!',
   'Versteck dich, heute ist Sperrmüllabfuhr...',
   'Du verschönerst jeden Raum beim hinausgehen!',
   'Du hast wohl vom falschen Baum geraucht, was?',
   'Hat einer an der Klospülung gezogen, oder warum blubberst Du?',
   'Du hast wohl wieder am Kot genascht?',
-  'Ich hab Schwierigkeiten Deinen Namen zu merken, darf ich Dich einfach Blödmann nennen?!',
+  'Ich hab Schwierigkeiten damit, mir Deinen Namen zu merken. Darf ich Dich einfach Blödmann nennen?!',
   'Es wird schon dunkel! Du solltest jetzt wieder zu den Müllsäcken zurück.',
   'Ich weiss - Dein Kopf ist immer voll. Vorne mit Heu und hinten mit Wasser und wenn es brennt dann brauchst Du nur zu nicken.',
   'Deine Sprüche sind so alt, da sind ja noch Hakenkreuze dran!',
@@ -125,13 +129,19 @@ const
   'Du hast Helium im Kopf, damit Du aufrecht gehen kannst, was?',
   'Das behauptest du doch nur, um vom Vakuum in deinem Schädel abzulenken.',
   'Wenn Gülle die Argumentation ersetzen muss...',
-  'und seine kleine Welt... :D');
+  'Dieser Moment wenn man den Beitrag liest und genau weiß wie das Facebookprofil dazu aussieht...',
+  'Bei Dir kann man die Jogginghosen direkt erahnen! Du hast doch sicher gerade die Nacht auf dem Aldi-Parkplatz verbracht und dich mit deinem Fahrrad zugedeckt?!',
+  'und seine kleine Welt... :D',
+  'Dich hat man doch sicher geblitzdingst?');
 
 var
   FirstName: string;
   Greeting: string;
   Anrede: string;
   Beschimpfung: string;
+  AHandle: HWND;
+  //MyBitmap: TPicture;
+  //ScreenDC: HDC;
 
 begin
   FirstName := ed_FirstName.Text;
@@ -150,12 +160,48 @@ begin
   until zufallszahl <> beschimpfung_schon_da ;  // Wiederholungen für Beschimpfung unterbinden!
 
   Beschimpfung :=  schimpfArray[zufallszahl];
-  Greeting := Greeting + Format(' %s! ', [FirstName]);
+  Greeting := Greeting + Format(' %s. ', [FirstName]);
   Greeting := Greeting + Beschimpfung;
   beschimpfung_schon_da := zufallszahl;
 
   ed_Ausgabe.Text := Greeting;
   MessageDlg('Wen haben wir denn da?', Greeting, mtConfirmation, [mbOK], 0);
+
+  (* Screenshot *)
+  {$IFDEF MSWINDOWS}
+  if cb_Screenshot.Checked = true then
+    begin
+      AHandle := GetForegroundWindow;
+      keybd_event(VK_SNAPSHOT, 1, 0, 0);
+    end;
+  {$ELSE}
+  cb_Screenshot.Enabled = false;
+  {$ENDIF}
+
+
+  //MyBitmap := TPicture.Create;
+  //try
+  //  ScreenDC := GetDC(0);
+  //  MyBitmap.Bitmap.LoadFromDevice(ScreenDC);
+  //  ReleaseDC(0, ScreenDC);
+  //  MyBitmap.Bitmap.SaveToFile('Test.bmp');
+  //finally
+  //  MyBitmap.Free;
+  //end;
+
+  //MyBitmap := TPicture.Create;
+  //try
+  //ScreenDC := GetDC(Form1.Handle);
+  //MyBitmap.Bitmap.LoadFromDevice(ScreenDC);
+  //MyBitmap.Bitmap.Width := Round(827);
+  //Mybitmap.Bitmap.Height := Round(647);
+  //ReleaseDC(0, ScreenDC);
+  //  MyBitmap.Bitmap.SaveToFile('Test.bmp');
+  //finally
+  //  MyBitmap.Free;
+  //end;
+
+
 end;
 
 procedure TForm1.FormActivate(Sender: TObject);
@@ -203,7 +249,7 @@ begin
   // PODirectory:='C:/lazarus/lcl/languages/'; // Schrägstrich nicht vergessen!
   currDir := currDir + '\po\';
   PODirectory := currDir;
-  ed_Ausgabe.Text := currDir;
+
   {$ELSE}
   {$IFDEF Linux}
   PODirectory:='/usr/lib/lazarus/1.8.2/lcl/languages/';

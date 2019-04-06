@@ -17,10 +17,6 @@ msgstr ""
 msgid "Schimpfomat v2.0"
 msgstr ""
 
-#: tform1.cb_screenshot.caption
-msgid "Screenshot erstellen"
-msgstr ""
-
 #: tform1.ed_firstname.text
 msgid "Nun mach hinne, Mensch!"
 msgstr ""

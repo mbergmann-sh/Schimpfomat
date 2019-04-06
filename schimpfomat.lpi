@@ -25,7 +25,7 @@
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="9"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="9"/>
+      <BuildNr Value="19"/>
       <Language Value="0407"/>
       <Attributes pvaPreRelease="True"/>
       <StringTable CompanyName="MB-SoftWorX" ProductVersion="0.9.3.3"/>
@@ -73,6 +73,9 @@
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>
+      <TargetProcessor Value="ATHLON64"/>
+      <TargetCPU Value="x86_64"/>
+      <TargetOS Value="win64"/>
       <Optimizations>
         <OptimizationLevel Value="3"/>
       </Optimizations>
