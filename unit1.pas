@@ -5,8 +5,11 @@ unit Unit1;
 interface
 
 uses
-  Windows, Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
   Dialogs, StdCtrls, Menus, Clipbrd, Translations;
+
+{$IFDEF MSWINDOWS} uses Windows; {$ENDIF}
+
 
 type
 
@@ -60,10 +63,10 @@ end;
 
 procedure TForm1.b_HelloClick(Sender: TObject);
 const
-  anredeIndex: Integer = 1 + 15;       (* Bei Erweiterungen: Index anpassen! *)
+  anredeIndex: Integer = 1 + 16;       (* Bei Erweiterungen: Index anpassen! *)
   schimpfIndex: Integer = 1 + 50;      (* Bei Erweiterungen: Index anpassen! *)
 
-  anredeArray: Array[0..15] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
+  anredeArray: Array[0..16] of String = (    (* Bei Erweiterungen: Prüfindex anpassen! *)
   'Ach nee, ',
   'Tach auch,',
   'Leck mich,',
@@ -78,6 +81,7 @@ const
   'Was bist Du denn für ein Troll,',
   'Du hast doch Gase eingeatmet,',
   'Sehr guter Einfall,',
+  'Vermutlich entspricht Dein IQ deiner Körpertemperatur,',
   'Ach, das ist doch das übliche Gewäsch des armen, unverstandenen Rechtsaußen, der sich und seine verqueren Ansichten für die Mitte der Gesellschaft hält,',
   '');
 
@@ -139,7 +143,9 @@ var
   Greeting: string;
   Anrede: string;
   Beschimpfung: string;
+  {$IFDEF MSWINDOWS}
   AHandle: HWND;
+  {$ENDIF}
   //MyBitmap: TPicture;
   //ScreenDC: HDC;
 
@@ -174,8 +180,6 @@ begin
       AHandle := GetForegroundWindow;
       keybd_event(VK_SNAPSHOT, 1, 0, 0);
     end;
-  {$ELSE}
-  cb_Screenshot.Enabled = false;
   {$ENDIF}
 
 
@@ -246,6 +250,7 @@ begin
 
   (* Übersetzen von MessageDlg Buttons... *)
   {$IFDEF WINDOWS}
+  cb_Screenshot.Enabled := true;
   // PODirectory:='C:/lazarus/lcl/languages/'; // Schrägstrich nicht vergessen!
   currDir := currDir + '\po\';
   PODirectory := currDir;
@@ -253,6 +258,7 @@ begin
   {$ELSE}
   {$IFDEF Linux}
   PODirectory:='/usr/lib/lazarus/1.8.2/lcl/languages/';
+  cb_Screenshot.Enabled := false;
   {$ENDIF}
   {$ENDIF}
 

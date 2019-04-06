@@ -1,0 +1,134 @@
+object Form1: TForm1
+  Left = 2369
+  Height = 268
+  Top = 266
+  Width = 376
+  Align = alCustom
+  Caption = 'Schimpfomat v2.0'
+  ClientHeight = 268
+  ClientWidth = 376
+  DesignTimePPI = 91
+  OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.0.0.4'
+  Visible = True
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 82
+    Top = 25
+    Width = 356
+    Anchors = [akLeft, akRight]
+    BorderSpacing.Left = 2
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 2
+    Caption = 'Verrate mir Deinen Namen!'
+    ClientHeight = 63
+    ClientWidth = 354
+    ParentFont = False
+    TabOrder = 0
+    object ed_FirstName: TEdit
+      Left = 4
+      Height = 55
+      Top = 4
+      Width = 346
+      Align = alClient
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
+      ParentFont = False
+      TabOrder = 0
+      Text = 'Nun mach hinne, Mensch!'
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Height = 100
+    Top = 123
+    Width = 358
+    Anchors = [akLeft, akRight]
+    BorderSpacing.Left = 2
+    BorderSpacing.Top = 2
+    BorderSpacing.Right = 2
+    BorderSpacing.Bottom = 2
+    Caption = 'Ausgabe für soziale Medien'
+    ClientHeight = 81
+    ClientWidth = 356
+    ParentFont = False
+    TabOrder = 1
+    object ed_Ausgabe: TEdit
+      Left = 4
+      Height = 30
+      Top = 4
+      Width = 348
+      Align = alTop
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
+      ParentFont = False
+      TabOrder = 0
+    end
+    object b_Clipboard: TButton
+      Left = 4
+      Height = 32
+      Top = 45
+      Width = 348
+      Align = alBottom
+      Anchors = [akRight]
+      AutoSize = True
+      BorderSpacing.Left = 4
+      BorderSpacing.Top = 4
+      BorderSpacing.Right = 4
+      BorderSpacing.Bottom = 4
+      Caption = 'Kopiere Beschimpfung in die Zwischenablage!'
+      OnClick = b_ClipboardClick
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  object b_Hello: TButton
+    Left = 165
+    Height = 24
+    Top = 237
+    Width = 118
+    Anchors = [akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    BorderSpacing.Bottom = 4
+    Caption = 'Beschimpfen!'
+    Default = True
+    OnClick = b_HelloClick
+    ParentFont = False
+    TabOrder = 2
+  end
+  object b_Exit: TButton
+    Left = 294
+    Height = 24
+    Top = 237
+    Width = 71
+    Anchors = [akBottom]
+    Caption = 'Tschüss...'
+    OnClick = b_ExitClick
+    ParentFont = False
+    TabOrder = 3
+  end
+  object cb_Screenshot: TCheckBox
+    Left = 15
+    Height = 18
+    Top = 238
+    Width = 145
+    Anchors = [akTop, akLeft, akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    BorderSpacing.Bottom = 4
+    Caption = 'Screenshot erstellen'
+    ParentFont = False
+    TabOrder = 4
+  end
+end

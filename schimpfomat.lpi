@@ -9,7 +9,6 @@
       <Title Value="schimpfomat"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
-      <UseXPManifest Value="True"/>
       <XPManifest>
         <DpiAware Value="True"/>
         <TextDesc Value="Schimpfomat generates accusations to a given name..."/>
@@ -23,11 +22,11 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="9"/>
+      <MajorVersionNr Value="2"/>
       <RevisionNr Value="3"/>
       <BuildNr Value="19"/>
       <Language Value="0407"/>
-      <Attributes pvaPreRelease="True"/>
+      <Attributes pvaPreRelease="True" pvaPrivateBuild="True"/>
       <StringTable CompanyName="MB-SoftWorX" ProductVersion="0.9.3.3"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -75,7 +74,7 @@
     <CodeGeneration>
       <TargetProcessor Value="ATHLON64"/>
       <TargetCPU Value="x86_64"/>
-      <TargetOS Value="win64"/>
+      <TargetOS Value="linux"/>
       <Optimizations>
         <OptimizationLevel Value="3"/>
       </Optimizations>
